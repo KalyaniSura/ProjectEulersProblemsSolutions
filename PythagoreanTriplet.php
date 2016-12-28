@@ -2,19 +2,22 @@
 
   $product = 0 ;
   
-  for ( $i = 2 ; ; $i++ )    {
+  for ( $i = 2 ; $i < 1000 ; $i++ )    {
   
-       for ( $j = 1 ; $j < $i ; $j++ )   {  
+       for ( $j = 1 ; $j < 1000  ; $j++ )   {  
 
-           $a = ( $i * $i ) - ( $j * $j ) ;  
-           $b = 2 * $i * $j ;  
-           $c = ( $i * $i ) + ( $j * $j ) ;
+          for ( $k = 1 ; $k < 1000 ; $k++ )  { 
   
-           if ( $a + $b + $c == 1000 )   {
-  
-               $product = $a * $b * $c ;  
-               break 2  ;  
+           if ( $i + $j + $k == 1000 )   {
+               
+               if ( ( ( $i * $i ) + ( $j * $j ) ) == ( $k * $k ) )  {
+                 
+                 $product = $i * $j * $k ;  
+                 break 3  ;  
             }  
+          }
+        
+         }
       }  
   }  
   echo " Pythagorean triplet product is :  ".$product ;
